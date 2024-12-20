@@ -4,12 +4,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  document.title = "login";
   const onLogin = useStore((state) => state.login);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const form = e.target;
+    const formData = new FormData(form);
     const user = Object.fromEntries(formData);
 
     axios
@@ -21,6 +23,9 @@ const Login = () => {
       .catch((err) => {
         console.error("Login failed:", err);
         alert("Login failed. Please check your username and password.");
+      })
+      .finally(() => {
+        form.reset();
       });
   };
 
@@ -41,7 +46,7 @@ const Login = () => {
           placeholder="Username"
         />
         <input
-          type="password" // Changed type to password
+          type="password"
           name="password"
           className="w-[320px] p-[15px] rounded-xl bg-transparent outline-none border-[1px] border-blue-700 text-black"
           autoComplete="off"

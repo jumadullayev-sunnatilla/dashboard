@@ -6,6 +6,7 @@ import { IoCardSharp, IoBuild } from "react-icons/io5";
 import { useStore } from "@/zustand"; // Corrected import for Zustand store
 
 const MainDashboard = () => {
+  document.title = "dashboard";
   const logout = useStore((state) => state.logout); // Access logout from Zustand store
   const navigate = useNavigate();
 
