@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#dashboard-sidebar .active {
+  background: #1a1f37;
+}
+
+.tspan {
+  color: rgb(0, 0, 0);
+}
